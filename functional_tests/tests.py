@@ -1,9 +1,9 @@
-import unittest
+from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 
-class NewVisitorTest(unittest.TestCase):
+class NewVisitorTest(LiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Chrome()
         self.browser.implicitly_wait(3)
@@ -19,7 +19,7 @@ class NewVisitorTest(unittest.TestCase):
     def test_can_start_a_list_and_retrieve_it_later(self):
 
         # 웹 사이트 접속
-        self.browser.get('http://localhost:8000')
+        self.browser.get(self.live_server_url)
 
         # 웹 페이지 타이틀, 헤더 'To-Do'
         self.assertIn('To-Do', self.browser.title)
@@ -54,7 +54,3 @@ class NewVisitorTest(unittest.TestCase):
         self.check_for_row_in_list_table('2: 공작깃털을 이용해서 그물 만들기')
         # 해당 url 접속시 작업목록 유지
         self.fail('Finish the test!')
-
-
-if __name__ == '__main__':
-    unittest.main(warnings='ignore')
