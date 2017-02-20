@@ -34,19 +34,32 @@ class NewVisitorTest(unittest.TestCase):
 
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
-        self.assertTrue(
-            any(row.text == '1: 공작깃털 사기' for row in rows),
-            '신규 작업이 테이블에 표시되지 않는다'
+        self.assertIn(
+            '1: 공작깃털 사기',
+            [row.text for row in rows]
         )
 
         # 추가 아이템 입력 가능한 여분의 텍스트 박스
         # 다시 '공작깃털을 이용해서 그물 만들기' 입력
-        self.fail('Finish the test!')
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        inputbox.send_keys('공작깃털을 이용해서 그물 만들기')
+        inputbox.send_keys(Keys.ENTER)
 
         # 페이지 갱신, 두개 아이템 보임
         # 사이트는 리스트에 대한 특정 url, url에 대한 설명 제공
 
+        table = self.browser.find_element_by_id('id_list_table')
+        rows = table.find_elements_by_tag_name('tr')
+        self.assertIn(
+            '1: 공작깃털 사기',
+            [row.text for row in rows]
+        )
+        self.assertIn(
+            '2: 공작깃털을 이용해서 그물 만들기',
+            [row.text for row in rows]
+        )
         # 해당 url 접속시 작업목록 유지
+        self.fail('Finish the test!')
 
 
 if __name__ == '__main__':
