@@ -11,8 +11,10 @@
 
 Ubuntu에서 실행방법 예:
 
-  sudo apt-get install nginx git python3 python3-pip
-  sudo pip3 install virtualenv
+```
+$ sudo apt-get install nginx git python3 python3-pip
+$ sudo pip3 install virtualenv
+```
 
 ## Nginx 가상 호스트 설정
 
@@ -27,16 +29,12 @@ Ubuntu에서 실행방법 예:
 ## 폴더 구조:
 사용자 계정의 ㅍ홈 폴더가 /home/username이라고 가정
 
+```
 /home/username
-
 ├── sites
-
 │   └── SITENAME
-
 │       ├── database
-
 │       ├── source
-
 │       ├── static
-
 │       └── virtualenv
+```
