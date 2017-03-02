@@ -28,9 +28,15 @@ Ubuntu에서 실행방법 예:
 사용자 계정의 ㅍ홈 폴더가 /home/username이라고 가정
 
 /home/username
+
 ├── sites
-│   └── superlists-staging.curzy.xyz
+
+│   └── SITENAME
+
 │       ├── database
+
 │       ├── source
+
 │       ├── static
+
 │       └── virtualenv
