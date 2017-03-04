@@ -62,7 +62,7 @@ def _update_settings(source_folder, site_name):
 def _update_virtualenv(source_folder):
     virtualenv_folder = ''.join([source_folder, '/../virtualenv'])
     if not exists(''.join([virtualenv_folder, '/bin/pip'])):
-        run('virtualenv '
+        run('~/.pyenv/versions/3.4.5/bin/virtualenv '
             '{virtualenv_folder}'.format(virtualenv_folder=virtualenv_folder))
     run('{virtualenv_folder}/bin/pip install -r'
         '{source_folder}/requirements.txt'.format(
